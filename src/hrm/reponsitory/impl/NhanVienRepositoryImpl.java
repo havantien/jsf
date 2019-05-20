@@ -17,6 +17,7 @@ import java.util.List;
 @SuppressWarnings("ALL")
 @Repository
 public class NhanVienRepositoryImpl implements NhanVienRepository {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -57,13 +58,13 @@ public class NhanVienRepositoryImpl implements NhanVienRepository {
             }
             if ((nhanVienSearch.getMaPB() != 0)) {
 
-                sql = sql + " and maPB like :mapb";
+                sql = sql + " and maPB = :mapb";
             }
             if ((nhanVienSearch.getNhanVien() != 0)) {
-                sql = sql + "and nhanVien like :nhanVien";
+                sql = sql + " and nhanVien = :maNV";
             }
-            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxluong() != 0)) {
-                sql = sql + "and between luong=:minLuong and luong=:maxLuong";
+            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxLuong() != 0)) {
+                sql = sql + " and  luong >:minLuong and luong <:maxLuong";
             }
             Query query = entityManager
                     .createQuery(sql);
@@ -75,15 +76,14 @@ public class NhanVienRepositoryImpl implements NhanVienRepository {
             }
             if (!(nhanVienSearch.getMaPB() == 0)) {
 
-                query.setParameter("mapb", "%" + nhanVienSearch.getMaPB() + "%");
+                query.setParameter("mapb", nhanVienSearch.getMaPB());
             }
             if (!(nhanVienSearch.getNhanVien() == 0)) {
-                query.setParameter("nhanVien", "%" + nhanVienSearch.getNhanVien() + "%");
+                query.setParameter("maNV", + nhanVienSearch.getNhanVien());
             }
-            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxluong() != 0)) {
-                query
-                        .setParameter("minLuong", nhanVienSearch.getMinLuong())
-                        .setParameter("maxLuong", nhanVienSearch.getMaxluong());
+            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxLuong() != 0)) {
+                query.setParameter("minLuong", nhanVienSearch.getMinLuong());
+                query.setParameter("maxLuong", nhanVienSearch.getMaxLuong());
 
             }
 

@@ -34,7 +34,10 @@
 
             <h:column>
                 <f:facet name="header">Ngày trả lương</f:facet>
-                #{nv.ngayTL}
+                <h:outputText value="#{nv.ngayTL}">
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:outputText>
+
             </h:column>
 
             <h:column>
@@ -54,15 +57,17 @@
 
             <h:column>
                 <f:facet name="header">Ngày bắt đầu</f:facet>
-                #{nv.ngayBD}
+                <h:outputText value="#{nv.ngayBD}">
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:outputText>
             </h:column>
 
             <h:column>
-                <f:facet name="header"></f:facet>
+                <f:facet name="header">Xóa</f:facet>
                 <h:commandLink action="#{nhanVienManagedBean.delete(nv)}" value="Delete" onclick="return confirm('Bạn muốn xóa')"/>
             </h:column>
             <h:column>
-                <f:facet name="header"></f:facet>
+                <f:facet name="header">Sửa</f:facet>
                 <h:commandLink action="#{nhanVienManagedBean.edit(nv)}" value="Edit" />
             </h:column>
 

@@ -7,7 +7,7 @@ public class NhanVienSearch {
     private int maPB;
     private int maQL;
     private int minLuong;
-    private int maxluong;
+    private int maxLuong;
 
 
 
@@ -51,11 +51,11 @@ public class NhanVienSearch {
         this.minLuong = minLuong;
     }
 
-    public int getMaxluong() {
-        return maxluong;
+    public int getMaxLuong() {
+        return maxLuong;
     }
 
-    public void setMaxluong(int maxluong) {
-        this.maxluong = maxluong;
+    public void setMaxLuong(int maxLuong) {
+        this.maxLuong = maxLuong;
     }
 }
