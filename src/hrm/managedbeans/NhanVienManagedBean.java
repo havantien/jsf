@@ -2,7 +2,7 @@ package hrm.managedbeans;
 
 import hrm.NhanVienService.NhanVienService;
 import hrm.model.NhanVien;
-import hrm.model.dto.NhanVienDTO;
+import hrm.model.search.NhanVienSearch;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class NhanVienManagedBean {
 
     private NhanVien nhanVien = new NhanVien();
 
-    private NhanVienDTO nhanVienDTO = new NhanVienDTO();
+    private NhanVienSearch nhanVienSearch = new NhanVienSearch();
 
 
     public void onload() {
@@ -64,7 +64,7 @@ public class NhanVienManagedBean {
     }
 
     public String find() {
-        this.nhanViens = nhanVienService.find(nhanVienDTO);
+        this.nhanViens = nhanVienService.find(nhanVienSearch);
         return "viewsearch?faces-redirect=true";
     }
 

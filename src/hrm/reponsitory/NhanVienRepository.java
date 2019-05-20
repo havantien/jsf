@@ -1,7 +1,7 @@
 package hrm.reponsitory;
 
 import hrm.model.NhanVien;
-import hrm.model.dto.NhanVienDTO;
+import hrm.model.search.NhanVienSearch;
 
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public interface NhanVienRepository {
     List<NhanVien> findAll();
 
-    List<NhanVien> find(NhanVienDTO nhanVienDTO);
+    List<NhanVien> find(NhanVienSearch nhanVienSearch);
 
 
     void create(NhanVien nhanVien);

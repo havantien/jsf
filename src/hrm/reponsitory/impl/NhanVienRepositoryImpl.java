@@ -2,7 +2,7 @@ package hrm.reponsitory.impl;
 
 
 import hrm.model.NhanVien;
-import hrm.model.dto.NhanVienDTO;
+import hrm.model.search.NhanVienSearch;
 import hrm.reponsitory.NhanVienRepository;
 import org.springframework.stereotype.Repository;
 
@@ -45,45 +45,45 @@ public class NhanVienRepositoryImpl implements NhanVienRepository {
     }
 
     @Override
-    public List<NhanVien> find(NhanVienDTO nhanVienDTO) {
+    public List<NhanVien> find(NhanVienSearch nhanVienSearch) {
         try {
 
             String nhanVien = "";
             List<NhanVien> lst = new ArrayList<>();
             String sql = "select n from NhanVien n where 1=1 ";
 
-            if (!nhanVienDTO.getTenNV().equals("")) {
+            if (!nhanVienSearch.getTenNV().equals("")) {
                 sql = sql + " and tenNV like :nv ";
             }
-            if ((nhanVienDTO.getMaPB() != 0)) {
+            if ((nhanVienSearch.getMaPB() != 0)) {
 
                 sql = sql + " and maPB like :mapb";
             }
-            if ((nhanVienDTO.getNhanVien() != 0)) {
+            if ((nhanVienSearch.getNhanVien() != 0)) {
                 sql = sql + "and nhanVien like :nhanVien";
             }
-            if ((nhanVienDTO.getLuong() != 0)) {
-                sql = sql + "and between luong and luong";
+            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxluong() != 0)) {
+                sql = sql + "and between luong=:minLuong and luong=:maxLuong";
             }
             Query query = entityManager
                     .createQuery(sql);
 
 
-            if (!nhanVienDTO.getTenNV().equals("")) {
-                query.setParameter("nv","%" + nhanVienDTO.getTenNV() +"%");
+            if (!nhanVienSearch.getTenNV().equals("")) {
+                query.setParameter("nv", "%" + nhanVienSearch.getTenNV() + "%");
 
             }
-            if (!(nhanVienDTO.getMaPB() == 0)) {
+            if (!(nhanVienSearch.getMaPB() == 0)) {
 
-                query.setParameter("mapb","%" + nhanVienDTO.getMaPB() + "%");
+                query.setParameter("mapb", "%" + nhanVienSearch.getMaPB() + "%");
             }
-            if (!(nhanVienDTO.getNhanVien() == 0)) {
-                query.setParameter("nhanVien", "%" + nhanVienDTO.getNhanVien() + "%");
+            if (!(nhanVienSearch.getNhanVien() == 0)) {
+                query.setParameter("nhanVien", "%" + nhanVienSearch.getNhanVien() + "%");
             }
-            if (!(nhanVienDTO.getLuong() == 0)) {
+            if ((nhanVienSearch.getMinLuong() != 0) && (nhanVienSearch.getMaxluong() != 0)) {
                 query
-                        .setParameter("luong", nhanVienDTO.getLuong())
-                        .setParameter("luong", nhanVienDTO.getLuong());
+                        .setParameter("minLuong", nhanVienSearch.getMinLuong())
+                        .setParameter("maxLuong", nhanVienSearch.getMaxluong());
 
             }
 

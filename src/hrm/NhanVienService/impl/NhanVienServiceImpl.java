@@ -2,7 +2,7 @@ package hrm.NhanVienService.impl;
 
 import hrm.NhanVienService.NhanVienService;
 import hrm.model.NhanVien;
-import hrm.model.dto.NhanVienDTO;
+import hrm.model.search.NhanVienSearch;
 import hrm.reponsitory.NhanVienRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,8 +26,8 @@ public class NhanVienServiceImpl implements NhanVienService {
     }
 
     @Override
-    public List<NhanVien> find(NhanVienDTO nhanVienDTO) {
-        return nhanVienRepository.find(nhanVienDTO);
+    public List<NhanVien> find(NhanVienSearch nhanVienSearch) {
+        return nhanVienRepository.find(nhanVienSearch);
     }
 
     @Override

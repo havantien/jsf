@@ -1,12 +1,15 @@
-package hrm.model.dto;
+package hrm.model.search;
 
 
-public class NhanVienDTO {
+public class NhanVienSearch {
     private int nhanVien;
     private String tenNV;
     private int maPB;
     private int maQL;
-    private int luong;
+    private int minLuong;
+    private int maxluong;
+
+
 
     public int getNhanVien() {
         return nhanVien;
@@ -40,11 +43,19 @@ public class NhanVienDTO {
         this.maQL = maQL;
     }
 
-    public int getLuong() {
-        return luong;
+    public int getMinLuong() {
+        return minLuong;
     }
 
-    public void setLuong(int luong) {
-        this.luong = luong;
+    public void setMinLuong(int minLuong) {
+        this.minLuong = minLuong;
+    }
+
+    public int getMaxluong() {
+        return maxluong;
+    }
+
+    public void setMaxluong(int maxluong) {
+        this.maxluong = maxluong;
     }
 }
