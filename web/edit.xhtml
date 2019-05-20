@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+</h:head>
+<h:body>
+
+    <h:form>
+        <table>
+            <tr>
+                <td>Mã nhân viên</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.nhanVien}"/></td>
+            </tr>
+
+            <tr>
+                <td>Lương</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.luong}"/></td>
+            </tr>
+
+            <tr>
+                <td>Mã phòng ban</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.maPB}"/></td>
+            </tr>
+            <tr>
+                <td>Mã quản lý</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.maQL}"/></td>
+            </tr>
+            <tr>
+                <td>Ngày trả lương</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.ngayTL}"/></td>
+            </tr>
+            <tr>
+                <td>Nghề nghiệp</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.ngheNghiep}"/></td>
+            </tr>
+            <tr>
+                <td>Tên nhân viên</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.tenNV}"/></td>
+            </tr>
+            <tr>
+                <td>Thưởng</td>
+                <td>  <h:inputText value="#{nhanVienManagedBean.nhanVien.thuong}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><h:commandButton action="#{nhanVienManagedBean.update()}" value="Sửa" /></td>
+            </tr>
+
+
+
+        </table>
+    </h:form>
+
+
+</h:body>
+</html>

@@ -1,0 +1,72 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+        <h:commandLink action="#{nhanVienManagedBean.add()}" value="Create Employee"/>
+        <h:commandLink action="#{nhanVienManagedBean.formSearch()}" value="Search"/>
+        <h:dataTable var="nv" value="#{nhanVienManagedBean.nhanViens}" border="1">
+            <h:column>
+                <f:facet name="header">Mã nhân viên</f:facet>
+                #{nv.nhanVien}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Lương</f:facet>
+                #{nv.luong}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Mã phòng ban</f:facet>
+                #{nv.maPB}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Mã quản lý</f:facet>
+                #{nv.maQL}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Ngày trả lương</f:facet>
+                #{nv.ngayTL}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Nghề nghiệp</f:facet>
+                #{nv.ngheNghiep}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Tên nhân viên</f:facet>
+                #{nv.tenNV}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Thưởng</f:facet>
+                #{nv.thuong}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Ngày bắt đầu</f:facet>
+                #{nv.ngayBD}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:commandLink action="#{nhanVienManagedBean.delete(nv)}" value="Delete" onclick="return confirm('Bạn muốn xóa')"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:commandLink action="#{nhanVienManagedBean.edit(nv)}" value="Edit" />
+            </h:column>
+
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>
