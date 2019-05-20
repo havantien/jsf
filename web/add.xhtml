@@ -38,11 +38,11 @@
             </tr>
 
             <tr>
-                <td>Ngày bắt đầu</td>
-                <td><p:inputText value="#{nhanVienManagedBean.nhanVien.ngayBD}"/></td>
-                
-                <td>Ngày trả lương</td>
-                <td><p:inputText value="#{nhanVienManagedBean.nhanVien.ngayTL}"/></td>
+                <td><p:outputLabel for="button" value="Ngày bắt đầu:" /></td>
+                <td><p:calendar id="button" value="#{nhanVienManagedBean.nhanVien.ngayBD}" showOn="button" pattern="MM/dd/yyyy" /></td>
+
+                <td><p:outputLabel for="button" value="Ngày bắt đầu:" /></td>
+                <td><p:calendar id="button1" value="#{nhanVienManagedBean.nhanVien.ngayTL}" showOn="button" pattern="MM/dd/yyyy" /></td>
             </tr>
 
             <tr>

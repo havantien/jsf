@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "nhanvien")
@@ -30,7 +31,7 @@ public class NhanVien {
     private Integer maQL;
 
     @Column(name = "NGAYTL")
-    private String ngayTL;
+    private Date ngayTL;
 
     @Column(name = "NGHENGHIEP")
     private String ngheNghiep;
@@ -43,7 +44,7 @@ public class NhanVien {
     private Integer thuong;
 
     @Column(name = "NGAYBD")
-    private String ngayBD;
+    private Date ngayBD;
 
     public int getNhanVien() {
         return nhanVien;
@@ -77,11 +78,11 @@ public class NhanVien {
         this.maQL = maQL;
     }
 
-    public String getNgayTL() {
+    public Date getNgayTL() {
         return ngayTL;
     }
 
-    public void setNgayTL(String ngayTL) {
+    public void setNgayTL(Date ngayTL) {
         this.ngayTL = ngayTL;
     }
 
@@ -109,11 +110,11 @@ public class NhanVien {
         this.thuong = thuong;
     }
 
-    public String getNgayBD() {
+    public Date getNgayBD() {
         return ngayBD;
     }
 
-    public void setNgayBD(String ngayBD) {
+    public void setNgayBD(Date ngayBD) {
         this.ngayBD = ngayBD;
     }
 }

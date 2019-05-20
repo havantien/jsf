@@ -62,12 +62,15 @@ public class NhanVienRepositoryImpl implements NhanVienRepository {
             if ((nhanVienDTO.getNhanVien() != 0)) {
                 sql = sql + "and nhanVien like :nhanVien";
             }
+            if ((nhanVienDTO.getLuong() != 0)) {
+                sql = sql + "and between luong and luong";
+            }
             Query query = entityManager
                     .createQuery(sql);
 
 
             if (!nhanVienDTO.getTenNV().equals("")) {
-                query.setParameter("nv","%" +nhanVienDTO.getTenNV() +"%");
+                query.setParameter("nv","%" + nhanVienDTO.getTenNV() +"%");
 
             }
             if (!(nhanVienDTO.getMaPB() == 0)) {
@@ -76,6 +79,12 @@ public class NhanVienRepositoryImpl implements NhanVienRepository {
             }
             if (!(nhanVienDTO.getNhanVien() == 0)) {
                 query.setParameter("nhanVien", "%" + nhanVienDTO.getNhanVien() + "%");
+            }
+            if (!(nhanVienDTO.getLuong() == 0)) {
+                query
+                        .setParameter("luong", nhanVienDTO.getLuong())
+                        .setParameter("luong", nhanVienDTO.getLuong());
+
             }
 
             lst = query.getResultList();
